@@ -22,13 +22,15 @@ Project-SABER is an open-source repository of **Microsoft Sentinel KQL queries**
 🔹 **Improve detection engineering** with curated KQL queries
 🔹 **Use Parsers for log analysis or detection engineering**
 
-## 🔧 **Getting Started**  
+
+## **Getting Started**  
 1️⃣ Clone the repository:  
    ```bash
    git clone https://github.com/yourusername/Project-SABER.git
    ```  
 2️⃣ Explore the directories
 3️⃣ Implement the KQL queries in **Microsoft Sentinel** or  **Defender XDR**
+
 
 ## 📖 **KQL Basics**  
 Kusto Query Language (KQL) is used in Microsoft Sentinel for querying logs and creating detection rules. Below is an introduction to KQL syntax, operators, and examples.
