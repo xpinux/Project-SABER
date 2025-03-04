@@ -2,9 +2,9 @@
 # **Parser: F5LB**
 
 ## **Description**
-This parser extracts and normalizes key security events from **Syslog** within Microsoft Sentinel. It completly enhances **threat detection and investigation** as it parses through Syslog Table.
+This Kusto Query Language (KQL) parser extracts and normalizes key security events from the Syslog table in Microsoft Sentinel. By structuring and enriching raw Syslog data, this parser significantly enhances threat detection, investigation, and correlation across your security environment.
 
-**Important**: Please provide in the "" the relevant appliance Computer Name of your F5 in order to work
+**Important**: Ensure you replace "" with the correct Computer Name of your F5 device for proper functionality.
 
 ---
 
