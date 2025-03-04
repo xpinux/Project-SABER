@@ -25,7 +25,7 @@ Project-SABER is an open-source repository of **Microsoft Sentinel KQL queries**
 ## **Getting Started**  
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/yourusername/Project-SABER.git
+   git clone https://github.com/xpinux/Project-SABER.git
    ```  
 2. Explore the directories
 3. Implement the KQL queries in **Microsoft Sentinel** or  **Defender XDR**
