@@ -1,0 +1,14 @@
+Syslog
+| where Computer contains ""   //Place in the "" the Computer Name of your F5
+| extend Process=extract(@"((logger)|(run-parts)|(tmsh)|(anacron)|(mcpd)|(tmm.)|(httpd)|(snmpd)|(sflow_agent)|(syslog-ng)|(unix_chkpwd)|(auditd)|(audit_forwarder)|(CROND)|(iControlPortal.cgi))",1,SyslogMessage)
+| extend EventID=extract(@"\[(\d+)]\:",1,SyslogMessage)
+| extend Process_Type=extract(@":..(\S+)]",1,SyslogMessage)
+| extend IP=extract(@"10\.[0-9]+\.[0-9]+\.[0-9]+",0,SyslogMessage)
+| extend CoreMsg=extract(@"10\.[0-9]+\.[0-9]+\.[0-9]+(.*)",1,SyslogMessage)
+| extend User=extract(@"(c\d+)|(x\d+)",1,CoreMsg)
+| extend Details=extract(@":\d:(.*)",1,SyslogMessage)
+| extend CronMsg=extract("run-parts(.*)",1,SyslogMessage)
+| extend mcpdMsg=extract(@"mcpd\[\d+]\:(.*)",1,SyslogMessage)
+| extend OtherMessage=extract(@"unix_chkpwd\[\d+]\:(.*)",1,SyslogMessage)
+| project TimeGenerated,EventTime,Computer,Process,Process_Type,IP,CoreMsg,User,Details,CronMsg,mcpdMsg,OtherMessage,Facility,SeverityLevel,SyslogMessage,CollectorHostName,Type
+
