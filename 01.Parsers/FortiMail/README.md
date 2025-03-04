@@ -9,5 +9,5 @@ This parser extracts and normalizes key security events from **Syslog** within M
 
 ## **Log Source**
 - **Table:** `Syslog`
-- **Vendor:** `FortiNet`
+- **Vendor:** `Fortinet`
 - **Product:** `FortiMail`
