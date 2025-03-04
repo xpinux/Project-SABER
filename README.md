@@ -95,7 +95,9 @@ Parsers are used in KQL to extract structured data from unstructured logs. This 
 - `parse-kv()` – Parses key-value formatted data.
 - `parse` – Extracts fields from structured strings.
 - It is very important to escape special characters when dealing with Regex. In KQL we can do it with these 2 options:
-1. Escape the \ character with double \: \\ or use 2. Use verbatim string: @
+  
+1. Escape the \ character with double \: \\
+2. Use verbatim string: @
 
 ### **Example: Extracting Data with `extract()`**  
 ```kql
