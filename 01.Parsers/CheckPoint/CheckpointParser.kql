@@ -1,0 +1,22 @@
+CommonSecurityLog
+| where DeviceVendor == "Check Point"
+| extend todynamic(AdditionalExtensions)
+| extend LayerName=extract(@"layer_name=(.*?);",1,tostring(AdditionalExtensions))
+| extend ManagerName=extract(@"O=(\S+?).alpha.gr",1,tostring(AdditionalExtensions))
+| extend MemberName=extract(@"CN=(\S+),",1,tostring(AdditionalExtensions))
+| extend MemberIP=extract(@"origin=(.*?);",1,tostring(AdditionalExtensions))
+| extend OutOfState=extract(@"tcp\_packet\_out\_of\_state=(.*?)$",1,tostring(AdditionalExtensions))
+| extend Direction=extract(@"conn\_direction=(.*?);",1,tostring(AdditionalExtensions))
+| extend RuleName = DeviceCustomString2
+| extend Rule_Name=extract(@"rule_name=(.*?);",1,tostring(AdditionalExtensions))
+| extend MatchID=extract(@"match\_id=(.*?);",1,tostring(AdditionalExtensions))
+| extend Rule_ID=extract(@";rule=(\S+?);",1,tostring(AdditionalExtensions))
+| extend RuleUID=extract(@"rule_uid=(.*?);",1,tostring(AdditionalExtensions))
+| extend Protection_Type = DeviceCustomString3
+| extend Protection_Name = DeviceCustomString4
+| extend Confidence = FlexNumber1
+| extend Performance_Impact = FlexNumber2
+| extend Attack_Information = FlexString2
+| extend ICMP_Type = FieldDeviceCustomNumber2
+| extend ICMP_Code = FieldDeviceCustomNumber3
+| project TimeGenerated,DeviceProduct,LayerName,ManagerName,Computer,MemberName,MemberIP,DeviceEventClassID,Activity,SourceIP,SourcePort,DestinationIP,DestinationPort,DeviceAction,Protocol,OutOfState,RequestURL,SourceUserName,DestinationUserName,DestinationTranslatedAddress,DestinationTranslatedPort,SourceTranslatedAddress,SourceTranslatedPort,CommunicationDirection,Direction,RuleName,Rule_Name,MatchID,Rule_ID,RuleUID,Protection_Name,Confidence,Performance_Impact,Attack_Information,ICMP_Type,ICMP_Code,AdditionalExtensions,ApplicationProtocol,DestinationDnsDomain,DestinationServiceName,ReceivedBytes,SentBytes,FileName,FileHash,FileType
