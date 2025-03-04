@@ -13,22 +13,22 @@
 Project-SABER is an open-source repository of **Microsoft Sentinel KQL queries** designed for **enhanced detection, threat hunting, and event analysis**.  
 
 ##  **What’s Inside?**  
-✅ **Analytical Rules** – Proactive threat detection with KQL  
-✅ **Hunting Queries** – Advanced threat investigation techniques  
-✅ **Parsers** – Data normalization to enhance log visibility  
+- **Analytical Rules** – Proactive threat detection with KQL  
+- **Hunting Queries** – Advanced threat investigation techniques  
+- **Parsers** – Data normalization to enhance log visibility  
 
 ## **Why Use SABER?**  
-🔹 **Strengthen your security posture** in Microsoft Sentinel  
-🔹 **Improve detection engineering** with curated KQL queries
-🔹 **Use Parsers for log analysis or detection engineering** 
+- **Strengthen your security posture** in Microsoft Sentinel  
+- **Improve detection engineering** with curated KQL queries
+  - **Use Parsers for log analysis or detection engineering** 
 
 ## **Getting Started**  
-1️⃣ Clone the repository:  
+1. Clone the repository:  
    ```bash
    git clone https://github.com/yourusername/Project-SABER.git
    ```  
-2️⃣ Explore the directories
-3️⃣ Implement the KQL queries in **Microsoft Sentinel** or  **Defender XDR**
+2. Explore the directories
+3. Implement the KQL queries in **Microsoft Sentinel** or  **Defender XDR**
 
 
 ##  **KQL Basics**  
