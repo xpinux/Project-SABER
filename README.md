@@ -98,7 +98,7 @@ Parsers are used in KQL to extract structured data from unstructured logs. This 
 ### **Example: Extracting Data with `extract()`**  
 ```kql
 let log = "User=admin IP=192.168.1.1 Action=FailedLogin";
-print extract("IP=(\\d+\.\\d+\.\\d+\.\\d+)", 1, log)
+print extract(@"IP=(\d+\.\d+.\d+\.\d+))", 1, log)
 ```
 Output:
 ```
