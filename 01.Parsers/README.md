@@ -8,7 +8,7 @@ This folder contains **KQL parsers** for Microsoft Sentinel to enhance log norma
 ## **How to Save and Use a KQL Parser**
 To use a parser effectively in Microsoft Sentinel:
 
-### **Step 1: Save the Parser as a Function**
+### **Save the Parser as a Function**
 1. Open **Microsoft Sentinel**.
 2. Navigate to **Logs**.
 3. Paste the KQL parser query into the query window.
