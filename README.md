@@ -115,5 +115,5 @@ Parsers are **essential** for normalizing logs and making them usable in detecti
 
 ---
 
-## 🤝 **Contributions**  
+## **Contributions**  
 Have a **KQL query** that can improve detections? Submit a **pull request** and contribute to the community!  
