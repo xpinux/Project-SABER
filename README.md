@@ -1,3 +1,4 @@
+# **Project-SABER**   
 ```
   _________   _____ _______________________________  
  /   _____/  /  _  \\______   \_   _____/\______   \  
@@ -7,7 +8,6 @@
         \/         \/       \/        \/         \/   
 ```
 
-# **Project-SABER**   
 ### **Sentinel Adversary Behavior & Event Recognition**  
 
 Project-SABER is an open-source repository of **Microsoft Sentinel KQL queries** designed for **enhanced detection, threat hunting, and event analysis**.  
