@@ -11,4 +11,3 @@ Adversaries may also misuse **certutil** to transfer tools or files from externa
 - **Table:** `DeviceProcessEvents`  
 - **Process:** `certutil.exe`  
 
----
