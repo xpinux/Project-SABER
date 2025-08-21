@@ -13,7 +13,7 @@ Key enhancements include:
 ---
 
 ## **Log Source**
-- **Table:** `CommonSecurityLog`
+- **Table:** `Syslog`
 - **Vendor:** `Cisco`
 - **Product:** `Cisco ISE`
 
