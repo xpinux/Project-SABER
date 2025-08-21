@@ -1,9 +1,12 @@
 # **Detection: Certutil DecodeHex Usage**
 
 ## **Description**
-This KQL detection identifies suspicious use of **certutil.exe** with the `-decodehex` flag, which can indicate attempts to decode a hex-encoded file — a technique often associated with **malware obfuscation** or **data exfiltration**.  
+This KQL detection identifies suspicious use of **certutil.exe**, a Windows living-off-the-land binary (LOLBIN), in scenarios often abused by adversaries:  
 
-Adversaries may also misuse **certutil** to transfer tools or files from external systems into a compromised environment. Such activity leverages this living-off-the-land binary (LOLBIN) to download or decode malicious content without relying on external utilities.  
+- **Decoding activity** – Usage of `-decode` or `-decodehex` flags may indicate attempts to decode encoded files, commonly seen in **malware obfuscation** and **data exfiltration**.  
+- **Suspicious download activity** – Usage of `http`, `urlcache`, and `-f` in the command line can indicate attempts to **download malicious tools or payloads** from remote sources.  
+
+These techniques allow adversaries to leverage built-in Windows utilities to bypass security controls, avoid detection, and establish persistence without introducing new binaries.  
 
 ---
 
