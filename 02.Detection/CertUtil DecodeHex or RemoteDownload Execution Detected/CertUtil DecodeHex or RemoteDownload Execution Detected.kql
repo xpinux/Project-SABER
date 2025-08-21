@@ -1,0 +1,3 @@
+DeviceProcessEvents
+| where ProcessCommandLine matches regex @"-decode(.*)" or tolower(ProcessCommandLine) has_all ("http", "urlcache", "-f")
+| where FileName == "certutil.exe"
