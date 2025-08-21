@@ -11,3 +11,20 @@ Adversaries may also misuse **certutil** to transfer tools or files from externa
 - **Table:** `DeviceProcessEvents`  
 - **Process:** `certutil.exe`  
 
+---
+## **Configuration**
+
+Recommended query scheduling frequency: 1 hour
+Recommended lookup period: 1 hour
+Severity Recommendation: Medium
+
+---
+## **Entity Mapping**
+-AccountName
+-DeviceName
+-FileName
+-ProcessCommandLine
+-InitiatingProcessCommandLine
+
+## **MITRE ATT&CK Mapping**
+`T1140 – Deobfuscate/Decode Files or Information`
