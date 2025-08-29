@@ -1,0 +1,7 @@
+let FailedLogins = CommonSecurityLog
+| where DeviceVendor == "Fortinet"
+| where Message has_all ("login", "failed");
+FailedLogins
+| summarize FailedCount = count() by Message, Computer
+| extend TotalFailed = toscalar(FailedLogins | summarize count())
+| where FailedCount > 400 or TotalFailed > 200
