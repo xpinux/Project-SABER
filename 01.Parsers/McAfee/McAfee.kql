@@ -1,0 +1,45 @@
+`CommonSecurityLog
+| where DeviceProduct == "Web Gateway" or DeviceProduct contains "WebGateway"
+| extend HTTPStatus = DeviceEventClassID
+| extend EventType = Activity
+| extend BlockReason = FieldDeviceCustomNumber1
+| extend VirusName = DeviceCustomString1
+| extend ProtocolVersion = DeviceCustomString3
+| extend Reputation = DeviceCustomString6
+| extend URL_Categories = DeviceCustomString4
+| extend Policy = DeviceCustomString5
+| project 
+    TimeGenerated,
+    Computer,
+    DeviceVendor,
+    DeviceProduct,
+    DeviceVersion,
+    LogSeverity,
+    ApplicationProtocol,
+    HTTPStatus,
+    EventType,
+    DestinationHostName,
+    DestinationIP,
+    DestinationPort,
+    SourceIP,
+    SourcePort,
+    SourceUserName,
+    DestinationUserName,
+    FileType,
+    RequestURL,
+    RequestClientApplication,
+    RequestMethod,
+    SentBytes,
+    ReceivedBytes,
+    ReceiptTime,
+    DeviceEventCategory,
+    BlockReason,
+    VirusName,
+    ProtocolVersion,
+    URL_Categories,
+    FlexString1Label,
+    FlexString1,
+    Reputation,
+    Policy,
+    CollectorHostName,
+    Type`
