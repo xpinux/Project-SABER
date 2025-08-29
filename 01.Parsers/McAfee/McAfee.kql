@@ -1,4 +1,4 @@
-`CommonSecurityLog
+CommonSecurityLog
 | where DeviceProduct == "Web Gateway" or DeviceProduct contains "WebGateway"
 | extend HTTPStatus = DeviceEventClassID
 | extend EventType = Activity
@@ -42,4 +42,4 @@
     Reputation,
     Policy,
     CollectorHostName,
-    Type`
+    Type
