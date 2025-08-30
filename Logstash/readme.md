@@ -122,7 +122,7 @@ When creating the transformation for Syslog, open the DCR template JSON (Export 
 }`
 This standardizes output into the Syslog table (Microsoft-Syslog).
 
-For the Windows Logs use this in the JSON editing of the Windos DCR ` "outputStream": "Microsoft-WindowsEvent"`
+- For the Windows Logs use this in the JSON editing of the Windos DCR ` "outputStream": "Microsoft-WindowsEvent"`
 
 Important: TimeGenerated must be present and a valid datetime; otherwise ingestion and analytics will be misaligned.
 
