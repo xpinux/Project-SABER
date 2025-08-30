@@ -2,7 +2,7 @@ CommonSecurityLog
 | where DeviceVendor == "Check Point"
 | extend todynamic(AdditionalExtensions)
 | extend LayerName=extract(@"layer_name=(.*?);",1,tostring(AdditionalExtensions))
-| extend ManagerName=extract(@"O=(\S+?).alpha.gr",1,tostring(AdditionalExtensions))
+| extend ManagerName=extract(@"O=(\S+?).",1,tostring(AdditionalExtensions))
 | extend MemberName=extract(@"CN=(\S+),",1,tostring(AdditionalExtensions))
 | extend MemberIP=extract(@"origin=(.*?);",1,tostring(AdditionalExtensions))
 | extend OutOfState=extract(@"tcp\_packet\_out\_of\_state=(.*?)$",1,tostring(AdditionalExtensions))
