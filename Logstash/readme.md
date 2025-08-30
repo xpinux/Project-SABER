@@ -16,17 +16,13 @@ The goal is to provide flexibility when ingesting logs into Sentinel, especially
   - Forward Syslog data (from Linux or network devices) into **Logstash**.
   - Logstash forwards everything into **Microsoft Sentinel**.
 - Deploy **two Logstash servers** for redundancy.
+-  Alternatively, use Kafka + Logstash for scalable log distribution, ensuring logs from all sources can be routed “from everything to everywhere"
 
 ### 2. Unsupported or Poorly Parsed Logs
 - Sometimes Microsoft’s collectors:
   - Do **not collect rare syslog formats**, or
   - **Fail to parse logs correctly**.
 - A **Logstash collector** allows you to normalize, enrich, and transform these logs before ingesting them into Sentinel.
-
-### 3. Multi-SIEM log distribution
-- If your organization uses multiple SIEMs, you can use Logstash as a universal collector and distributor.
-- Configure multiple Logstash pipelines to send the same logs to different SIEMs. 
-- Alternatively, use Kafka + Logstash for scalable log distribution, ensuring logs from all sources can be routed “from everything to everywher
 ---
 
 ## Logstash Architecture
