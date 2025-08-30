@@ -5,13 +5,12 @@ The goal is to provide flexibility when ingesting logs into Sentinel, especially
 
 <img width="712" height="475" alt="image" src="https://github.com/user-attachments/assets/f8a298dc-8392-46b8-a7a6-678541e4068f" />
 
-
 ---
 
 ## Recommended Use Cases
 
 ### 1. Centralized Collector for Multiple SIEMs
-- If you manage multiple SIEMs and don’t want to install agents (e.g., **Winlogbeat**) directly on endpoints.  
+- If you manage multiple SIEMs and don’t want to install agents (e.g., **AMA Agent**) directly on endpoints.  
 - Instead:
   - Use **Winlogbeat** to forward Windows logs into **Logstash**.
   - Forward Syslog data (from Linux or network devices) into **Logstash**.
@@ -81,6 +80,7 @@ input {
 Before ingestion, create sample log files from each data source. These are needed when creating DCR transformations.
 
 Example output configuration:
+
 `output {
   microsoft-sentinel-log-analytics-logstash-output-plugin {
     create_sample_file => true
@@ -102,7 +102,6 @@ In Microsoft Entra ID (Azure AD):
 - Tenant ID
 - Client ID
 - Client Secret
-
 ## Step 4 – Create Data Collection Rules (DCRs)
 
 In the Azure Portal -> Data Collection Rules.
@@ -122,8 +121,7 @@ When creating the transformation for Syslog, open the DCR template JSON (Export 
   "transformKql": "source | project TimeGenerated = ls_timestamp, EventTime = todatetime(timestamp), Computer = logsource, HostName = logsource, HostIP = host, SyslogMessage = message, Facility = facility_label, SeverityLevel = severity_label",
   "outputStream": "Microsoft-Syslog"
 }`
-
-This standardizes output into the Syslog table (Microsoft-Syslog). If your field names differ, update the project accordingly.
+This standardizes output into the Syslog table (Microsoft-Syslog).
 
 Important: TimeGenerated must be present and a valid datetime; otherwise ingestion and analytics will be misaligned.
 
