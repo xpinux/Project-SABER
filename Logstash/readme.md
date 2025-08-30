@@ -3,6 +3,8 @@
 This guide explains how to configure **Logstash** as a collector for Microsoft Sentinel.  
 The goal is to provide flexibility when ingesting logs into Sentinel, especially in cases where Microsoft’s native collectors are limited or when you need a centralized approach without having a lot of agents in your environment.
 
+Logstash, with its Microsoft Sentinel output plugin, curates and forwards these logs to Microsoft Sentinel. Once in Sentinel, data collection rules are used to guide and ingest these logs into corresponding tables. Microsoft Sentinel's Logstash output plugin is an instrumental tool in ensuring seamless log transition. Leveraging its capabilities, any log acquired from Logstash can be forwarded to the Microsoft Sentinel/Log Analytics workspace using the Log Analytics DCR-based APl. These logs can be directed to either custom or standard tables.
+
 <img width="712" height="475" alt="image" src="https://github.com/user-attachments/assets/f8a298dc-8392-46b8-a7a6-678541e4068f" />
 
 ---
