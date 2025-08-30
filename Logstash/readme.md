@@ -61,7 +61,7 @@ input {
     port => 514
     type => syslog
   }
-}```
+} ```
 
 ## Step 2 – Generate Sample Files
 
