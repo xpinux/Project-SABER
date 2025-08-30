@@ -81,10 +81,15 @@ Before ingestion, create sample log files from each data source. These are neede
 Example output configuration:
 
 `output {
+
   microsoft-sentinel-log-analytics-logstash-output-plugin {
+
     create_sample_file => true
-    sample_file_path   => "/tmp"   # or "C:\\temp" on Windows
+
+    sample_file_path   => "/tmp"
+
   }
+
 }`
 
 Run Logstash temporarily with this config until the sample files are created.
@@ -101,10 +106,10 @@ In Microsoft Entra ID (Azure AD):
 - Tenant ID
 - Client ID
 - Client Secret
+
 ## Step 4 – Create Data Collection Rules (DCRs)
 
 In the Azure Portal -> Data Collection Rules.
-
 1. Create a new DCR and target your Log Analytics workspace.
 2. In the Transformations tab:
 3. Upload your sample file. 
