@@ -1,1 +1,1 @@
-source | project TimeGenerated = ls_timestamp, EventTime = todatetime(timestamp), Computer = logsource, HostName = logsource, HostIP = host, SyslogMessage = message, Facility = facility_label, SeverityLevel = severity_label
+source | project TimeGenerated = ls_timestamp, EventTime = todatetime(timestamp), Computer = tostring(host), HostName = logsource, SyslogMessage = message, Facility = facility_label, SeverityLevel = severity_label
