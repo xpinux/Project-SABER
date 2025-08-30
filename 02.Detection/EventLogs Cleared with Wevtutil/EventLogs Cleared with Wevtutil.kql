@@ -1,0 +1,2 @@
+SecurityEvent
+| where CommandLine matches regex @"(?i).*wevtutil cl.*" or CommandLine matches regex @"(?i).*wevtutil\s+cl.*"  or CommandLine matches regex @"(?i)Clear-EventLog"  or CommandLine matches regex @"(?i)Invoke-Maldoc"  or CommandLine matches regex @"(?i)wevtutil.exe cl"
