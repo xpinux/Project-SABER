@@ -81,15 +81,10 @@ Before ingestion, create sample log files from each data source. These are neede
 Example output configuration:
 
 `output {
-
   microsoft-sentinel-log-analytics-logstash-output-plugin {
-
     create_sample_file => true
-
     sample_file_path   => "/tmp"
-
   }
-
 }`
 
 Run Logstash temporarily with this config until the sample files are created.
@@ -126,6 +121,8 @@ When creating the transformation for Syslog, open the DCR template JSON (Export 
   "outputStream": "Microsoft-Syslog"
 }`
 This standardizes output into the Syslog table (Microsoft-Syslog).
+
+For the Windows Logs use this in the JSON editing of the Windos DCR ` "outputStream": "Microsoft-WindowsEvent"`
 
 Important: TimeGenerated must be present and a valid datetime; otherwise ingestion and analytics will be misaligned.
 
