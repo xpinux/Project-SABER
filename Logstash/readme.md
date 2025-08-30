@@ -138,19 +138,7 @@ Important: TimeGenerated must be present and a valid datetime; otherwise ingesti
 
 Configure Logstash to send to your Data Collection Endpoint (DCE) using the DCR you created:
 
-`output {
-  microsoft-sentinel-log-analytics-logstash-output-plugin {
-    client_app_Id            => "<your client_app_id>"
-    client_app_secret        => "<your client_app_secret>"
-    tenant_id                => "<your tenant_id>"
-    data_collection_endpoint => "<your logsIngestion URI>"
-    dcr_immutable_id         => "<your DCR immutableId>"
-    dcr_stream_name          => "<your DCR stream name>"
-    create_sample_file       => false
-    sample_file_path         => "C:\\temp"
-    proxy                    => "http://proxy.example.com"
-  }
-}`
+<img width="623" height="368" alt="image" src="https://github.com/user-attachments/assets/3062b7ef-f03b-451e-bb4b-5792c65b143e" />
 
 ## Parameter reference
 Parameter	Description
