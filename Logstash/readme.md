@@ -142,12 +142,14 @@ Configure Logstash to send to your Data Collection Endpoint (DCE) using the DCR 
 
 ## Parameter reference
 Parameter	Description
-client_app_Id	The Application (client) ID from your app registration (Step 3).
-client_app_secret	The client secret created for the app registration (Step 3).
-tenant_id	Your tenant ID (Microsoft Entra ID → Overview).
-data_collection_endpoint	The logsIngestion URI of your Data Collection Endpoint (DCE).
-dcr_immutable_id	The DCR immutableId (visible in the DCR Overview → JSON view).
-dcr_stream_name	Must match the DCR stream. For standard tables this is typically Microsoft-Syslog or Microsoft-WindowsEvent. If your DCR uses a custom stream name (for example Custom-SyslogStream), copy it exactly from dataFlows > streams in the DCR JSON.
+| Parameter                  | Description |
+|----------------------------|-------------|
+| client_app_Id              | The Application (client) ID from your app registration (Step 3). |
+| client_app_secret          | The client secret created for the app registration (Step 3). |
+| tenant_id                  | Your tenant ID (Microsoft Entra ID → Overview). |
+| data_collection_endpoint   | The logsIngestion URI of your Data Collection Endpoint (DCE). |
+| dcr_immutable_id           | The DCR immutableId (visible in the DCR Overview → JSON view). |
+| dcr_stream_name            | Must match the DCR stream. For standard tables this is typically `Microsoft-Syslog` or `Microsoft-WindowsEvent`. If your DCR uses a custom stream name (e.g., `Custom-SyslogStream`), copy it exactly from `dataFlows > streams` in the DCR JSON. |
 
 After you finish configuration, restart the Logstash service.
 
