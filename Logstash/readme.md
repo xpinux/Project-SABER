@@ -62,12 +62,12 @@ The Logstash engine is composed of three components:
 Define your **inputs** (Winlogbeat, Syslog, etc.). Example:
 
 input {
-  # Winlogbeat (Windows logs)
+  Winlogbeat (Windows logs)
   beats {
     port => 5044
   }
 
-  # Syslog (Linux/network devices)
+  Syslog (Linux/network devices)
   tcp {
     port => 514
     type => syslog
