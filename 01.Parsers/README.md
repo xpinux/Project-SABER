@@ -1,3 +1,5 @@
+# Parsers
+
 This folder contains **KQL parsers** for Microsoft Sentinel to enhance log normalization and structured data extraction. Our parsers improve upon existing log formats, including **CommonSecurityLog** and **Syslog**, ensuring cleaner and more efficient threat detection.
 
 ## **What’s Inside?**
