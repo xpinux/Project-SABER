@@ -7,15 +7,15 @@
 /_______  /\____|__  /______  /_______  / |____|_  /  
         \/         \/       \/        \/         \/   
 ```
-
 ### **Sentinel Adversary Behavior & Event Recognition**  
 
-Project-SABER is an open-source repository of **Microsoft Sentinel KQL queries** designed for **enhanced detection, threat hunting, and event analysis**.  
+Project-SABER is an open-source repository of **Microsoft Sentinel KQL queries or Defender Unified Portal** designed for **enhanced detection, threat hunting, and event analysis**.  
 
 ##  **What’s Inside?**  
 - **Analytical Rules** – Proactive threat detection with KQL  
 - **Hunting Queries** – Advanced threat investigation techniques
-- **Parsers** – Data normalization to enhance log visibility  
+- **Parsers** – Data normalization to enhance log visibility
+- **More to come**
 
 ## **Why Use SABER?**  
 - **Strengthen your security posture** in Microsoft Sentinel  
@@ -23,12 +23,26 @@ Project-SABER is an open-source repository of **Microsoft Sentinel KQL queries**
 - **Use Parsers for log analysis or detection engineering** 
 
 ## **Getting Started**  
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/xpinux/Project-SABER.git
-   ```  
-2. Explore the directories
-3. Implement the KQL queries in **Microsoft Sentinel** or  **Defender XDR**
+1. Explore the directories
+2. Implement the KQL queries in **Microsoft Sentinel** or  **Defender XDR**
+
+## **Key Contributors**  
+First and foremost, a huge shout-out to **Michalis Michalos (cyb3rmik3)** my ultimate KQL inspiration and the reason this project exists. 
+
+This project also draws inspiration from several amazing members of the Sentinel community. Some queries here may resemble theirs—but in true **Project-SABER fashion**, they’ve been **enhanced, modified, or jazzed up** a bit.  
+
+If I’ve “borrowed” a query and forgotten its origin (my notebooks are overflowing, okay 😅), I sincerely apologize in advance!  
+
+Here are some of the **key contributors whose KQL content is publicly available on GitHub**:
+
+- **Bert-Jan Piet (Bert-JanP)** 
+- **Rod Trent** – KQL search & Sentinel advocate  
+- **Cyb3r-Monk (Mehmet Ergene)** – Creator of one of the most complete KQL courses  
+- **Cyb3rWard0g** – Advanced hunting & APT detection  
+- **FalconForceTeam / FalconFriday** – MITRE-mapped threat hunting content  
+- **SlimKQL / Hunting-Queries-Detection-Rules** – Curated Sentinel KQL queries  
+
+This section is meant to **celebrate the community**, not compete with it—without these incredible contributors, Project-SABER wouldn’t exist.  
 
 ##  **KQL Basics**  
 Kusto Query Language (KQL) is used in Microsoft Sentinel for querying logs and creating detection rules. Below is an introduction to KQL syntax, operators, and examples.
