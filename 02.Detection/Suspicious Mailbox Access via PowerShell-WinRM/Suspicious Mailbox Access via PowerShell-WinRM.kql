@@ -1,0 +1,1 @@
+OfficeActivity | where Operation == "MailboxLogin" | where UserAgent contains "PowerShell" or UserAgent contains "WinRm" or UserAgent contains "RemotePowerShell" or UserAgent contains "python"
