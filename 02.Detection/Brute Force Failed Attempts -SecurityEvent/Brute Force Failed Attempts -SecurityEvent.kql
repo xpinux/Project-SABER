@@ -1,0 +1,7 @@
+let ExcludedHosts = pack_array("local", "placeholder");
+SecurityEvent
+| where EventID == 4625 and TimeGenerated > ago(5m)
+| where TargetUserName !in (ExcludedHosts)
+| extend Failures = 1, TimeBruteForce = TimeGenerated
+| summarize failurescount = count(Failures) by Computer, LogonProcessName, Activity, AccountType, SubjectAccount, SubjectUserName, TargetAccount, TargetUserName, bin(TimeBruteForce, 5m)
+| where failurescount > 50
