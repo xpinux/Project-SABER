@@ -1,0 +1,5 @@
+CommonSecurityLog
+| where DeviceProduct == "SmartConsole" or DeviceProduct == "SmartDashboard"
+| parse-kv AdditionalExtensions as (loguid:string,origin:string,originsicname:int,rules:string,cn:string,o:string,sequencenum:string,version:string,administrator:string,additional_info:string,audit_status:string,objectname:string,objecttype:string,Policy:string,machine:string,operation:string,product:string,subject:string,advanced_changes:string,fieldchanges:string,Name:string,session_name:string) with (pair_delimiter=";",kv_delimiter="=")
+| project TimeGenerated,DeviceVendor,Computer,DeviceProduct,DeviceEventClassID,LogSeverity,session_name,SourceIP,loguid,origin,sequencenum,version,administrator,additional_info,audit_status,objectname,objecttype,machine,operation,product,subject,advanced_changes,fieldchanges,Name,AdditionalExtensions,CollectorHostName,Type
+
