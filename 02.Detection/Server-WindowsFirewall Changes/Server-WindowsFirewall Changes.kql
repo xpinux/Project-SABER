@@ -1,0 +1,2 @@
+SecurityEvent
+| where CommandLine matches regex @"(?i)Copy-item.*-Destination.* -Force:.*netsh.*firewall.*add.*rule.*name.*" or  CommandLine matches regex @"(?i)netsh.*advfirewall.*set.*currentprofile.*state.*off.*" or  CommandLine matches regex @"(?i)netsh.*firewall.*set.*opmode.*mode=disable.*" or  CommandLine matches regex @"(?i)netsh.*firewall.*set.*rule.*group=.*new.*enable=Yes.*" or  CommandLine matches regex @"(?i)New-ItemProperty.*HKLM:.*SOFTWARE.*POLICIES.*Microsoft.*WindowsFirewall.*"
