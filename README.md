@@ -9,7 +9,7 @@
 ```
 ### **Sentinel Adversary Behavior & Event Recognition**  
 
-Project-SABER is an open-source repository of **Microsoft Sentinel KQL queries or Defender Unified Portal** designed for **enhanced detection, threat hunting, and event analysis**.  
+Project-SABER is an open-source repository of **Microsoft Sentinel or Defender Unified Portal KQL queries** designed for **enhanced detection, threat hunting, and event analysis**.  
 
 ##  **What’s Inside?**  
 - **Analytical Rules** – Proactive threat detection with KQL  
