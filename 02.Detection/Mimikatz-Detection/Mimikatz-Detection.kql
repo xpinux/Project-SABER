@@ -1,0 +1,1 @@
+SecurityEvent | where CommandLine matches regex @"(?i)lsadump::sam" or CommandLine matches regex @"(?i)mimidrv sys" or CommandLine matches regex @"(?i)Mimikatz" or CommandLine matches regex @"(?i)privilege::debug" or CommandLine matches regex @"(?i)sekurlsa::logonpasswords" or CommandLine matches regex @"(?i)<3 eg\.oe" or CommandLine matches regex @"(?i)eo\.oe\.oe"
