@@ -1,0 +1,28 @@
+source
+| extend TimeGenerated = ls_timestamp  
+| project log, event, TimeGenerated, winlog
+// Parse or convert fields from original event
+| extend testevent = parse_json(event.original)
+| extend test0 = testevent.event.original
+| extend Channel = tostring(winlog.channel)
+| extend Computer = tostring(winlog.computer_name)
+| extend EventLevelName = tostring(testevent.log.level)
+| extend EventId = toint(winlog.event_id)
+| extend EventRecordId = tostring(winlog.record_id)
+| extend Opcode = tostring(winlog.opcode)
+| extend Provider = tostring(.winlog.provider_name)
+| extend SystemProcessId = toint(winlog.process.pid)
+| extend SystemThreadId = toint(winlog.process.thread.id)
+| extend SystemUserId = tostring(winlog.user.identifier)
+// Extract values from XML inside the event (if applicable)
+| extend Version = toint(extract(@\"<Version>(\\d+)<\\/Version>\", 1, test0))
+| extend Task = toint(extract(@\"<Task>(\\d+)<\\/Task>\", 1, test0))
+| extend EventLevel = toint(extract(@\"<Level>(\\d+)<\\/Level>\", 1, test0))
+// Additional fields
+| extend Correlation = tostring(winlog.correlation)
+| extend Keywords = tostring(winlog.keywords[0])
+| extend UserInfo_CE = winlog.user  // Custom field mapping
+// Fallback for missing event data
+| extend EventData = iff(isempty(winlog.user_data), winlog.event_data, winlog.user_data)
+// Remove intermediate fields
+| project-away log, event, winlog, testevent,test0
