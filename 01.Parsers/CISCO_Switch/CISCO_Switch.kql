@@ -1,0 +1,11 @@
+Syslog
+| where (SyslogMessage contains "%SEC_LOGIN" or SyslogMessage contains "%SYS" or SyslogMessage contains "%LINK" or SyslogMessage contains "%STP" or SyslogMessage contains "%IFMGR" or SyslogMessage contains "%IP" or SyslogMessage contains "%LINEPROTO" or SyslogMessage contains "%CDP" or SyslogMessage contains "%AUTH" or SyslogMessage contains "%CRYPTO" and SyslogMessage !contains "system"))
+| extend facility=extract(@'%(\S+)', 1, SyslogMessage)   
+| extend temp=extract(@'@(\S+).*', 0, SyslogMessage)   
+| extend severity=extract(@'-(\d+)-', 1, facility)   
+| extend msg=extract(@'.(.*)', 1, temp)   
+| extend user=extract(@'user:\s(\S+)]', 1, SyslogMessage)   
+| extend Source=extract(@'Source:.(\S+)]', 1, SyslogMessage)   
+| extend localport=extract(@'localport:.(\S+)]', 1, SyslogMessage)   
+| where facility !contains "system"  
+| project TimeGenerated, facility, severity, msg, user, Source, localport, SyslogMessage
