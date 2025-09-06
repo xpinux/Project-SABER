@@ -6,8 +6,6 @@ This Kusto Query Language (KQL) parser extracts and normalizes key security even
 
 **Important**: Ensure you replace "" with the correct Computer Name of your F5 device for proper functionality.
 
----
-
 ## **Log Source**
 - **Table:** `Syslog`
 - **Vendor:** `F5  `
