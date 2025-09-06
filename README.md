@@ -29,7 +29,7 @@ Project-SABER is an open-source repository of **Microsoft Sentinel or Defender U
 ## **Key Contributors**  
 First and foremost, a huge shout-out to **Michalis Michalos (cyb3rmik3)** my ultimate KQL inspiration and the reason this project exists. 
 
-This project also draws inspiration from several amazing members of the Sentinel community. Some queries here may resemble theirs—but in true **Project-SABER fashion**, they’ve been **enhanced, modified, or jazzed up** a bit.  
+This project also draws inspiration from several amazing members of the Sentinel community. Some queries here may resemble theirs but in true **Project-SABER fashion**, they’ve been **enhanced, modified, or jazzed up** a bit.  
 
 If I’ve “borrowed” a query and forgotten its origin (my notebooks are overflowing, okay 😅), I sincerely apologize in advance!  
 
