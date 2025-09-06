@@ -1,5 +1,5 @@
 CommonSecurityLog
-| where DeviceProduct == "Web Gateway" or DeviceProduct contains "WebGateway"
+| where DeviceProduct == "Web Gateway" // or put here your McAfee Proxy Server Name with Computer ==
 | extend HTTPStatus = DeviceEventClassID
 | extend EventType = Activity
 | extend BlockReason = FieldDeviceCustomNumber1
