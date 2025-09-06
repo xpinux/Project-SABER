@@ -10,18 +10,15 @@ Key enhancements include:
 - **Normalization of security events** for consistent field mappings  
 - **Improved support for detection engineering, hunting queries, and analytical rules**  
 
----
 
 ## **Log Source**
 - **Table:** `Syslog`
 - **Vendor:** `Cisco`
 - **Product:** `Cisco ISE`
 
----
 
 ## **Benefits**
 - More accurate and reliable alerting  
 - Enhanced visibility into Cisco ISE events  
 - Facilitates proactive monitoring, hunting, and response  
 
----
