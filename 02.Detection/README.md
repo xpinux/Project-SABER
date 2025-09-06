@@ -19,7 +19,7 @@ Follow these steps to deploy a detection rule:
 
 ### 2. Create a New Rule
 1. Click **+ Create > Scheduled query rule**.  
-2. Give the rule a **name** matching the detection folder or ID.  
+2. Give the rule a **name** matching the detection folder
 3. Copy the **description** from the `.md` file to the rule description.  
 4. Add **MITRE ATT&CK mappings** if available.  
 
@@ -46,7 +46,7 @@ Follow these steps to deploy a detection rule:
 
 ### 6. Set Thresholds and Conditions
 1. Apply thresholds or filters defined in the `.md` file (Most probably you won't have too, as it is set in the Query)
-2. Adjust thresholds to match your environment’s baseline activity.  
+2. (Optional) Adjust thresholds to match your environment’s baseline activity.  
 
 ---
 
@@ -56,7 +56,7 @@ Follow these steps to deploy a detection rule:
    - Verify the number of alerts generated.  
    - Fine-tune thresholds and timeranges.  
    - Identify potential false positives.  
-<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/b8006c5e-1c7a-4867-b08a-7b993b5b9084" />
+   <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/b8006c5e-1c7a-4867-b08a-7b993b5b9084" />
 
 ---
 
