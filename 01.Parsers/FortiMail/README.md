@@ -5,8 +5,6 @@ This parser extracts and normalizes key security events from **Syslog** within M
 
 **Important**: Please provide in the "" the relevant appliance Computer Name of your FortiMail in order to work
 
----
-
 ## **Log Source**
 - **Table:** `Syslog`
 - **Vendor:** `Fortinet`
