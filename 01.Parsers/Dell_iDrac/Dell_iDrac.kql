@@ -1,0 +1,7 @@
+Syslog
+| where SyslogMessage contains "iDrac"  // If you have the Server System you can also use: where Computer contains ""
+| extend DeviceName=extract(@'(iDRAC-\S+)', 1, SyslogMessage)
+| extend Severity=extract(@'Severity:.(\S+?),', 1, SyslogMessage)
+| extend Category=extract(@'Category:.(\S+?),', 1, SyslogMessage)
+| extend MessageID=extract(@'MessageID:.(\S+?),', 1, SyslogMessage)
+| extend Message=extract(@'Message:(.*)', 1, SyslogMessage)
