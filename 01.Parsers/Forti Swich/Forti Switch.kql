@@ -1,0 +1,20 @@
+Syslog
+| where SyslogMessage contains "device_id="  // here put the DeviceId or the first letter of the DeviceIds of your FortiSwitch
+| extend DeviceVendor="Fortinet", DeviceProduct="FortiSwitch"
+| extend DeviceEventCategory=extract(@"subtype=(\S+)", 1, SyslogMessage)
+| extend DeviceExternalID=extract(@"device_id=(\S+)", 1, SyslogMessage)
+| extend DeviceName=extract(@"devname=(\S+)", 1, SyslogMessage)
+| extend DeviceAction=extract(@"action=(\S+)", 1, SyslogMessage)
+| extend DeviceIP=extract(@"src=(\d+\.\d+\.\d+\.\d+)", 1, SyslogMessage)
+| extend type=extract(@"type=(\S+)", 1, SyslogMessage)
+| extend message=extract(@'msg="([^"]+)', 1, SyslogMessage)
+| extend pri=extract(@"pri=(\S+)", 1, SyslogMessage)
+| extend logid=extract(@"log_id=(\S+)", 1, SyslogMessage)
+| extend vd=extract(@"vd=(\S+)", 1, SyslogMessage)
+| extend user=extract(@'user="([^\"]+)', 1, SyslogMessage)
+| extend status=extract(@"status=(\S+)", 1, SyslogMessage)
+| extend ui=extract(@'ui="([^\"]+)', 1, SyslogMessage)
+| extend switchport=extract(@'switch.physical-port="([^\"]+)', 1, SyslogMessage)
+| project
+    TimeGenerated, DeviceName, DeviceExternalID, Message, DeviceAction, type,
+    DeviceVendor, DeviceProduct,message, pri, logid, vd, user, status, ui, switchport, SyslogMessage
