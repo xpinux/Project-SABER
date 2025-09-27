@@ -1,0 +1,8 @@
+DeviceRegistryEvents
+| where ActionType == "RegistryValueSet"
+| where RegistryKey has @"\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+| where RegistryValueName == "EnableLUA"
+| where RegistryValueData == 0
+| project Timestamp = TimeGenerated, DeviceName,InitiatingProcessAccountName,
+          InitiatingProcessFileName, RegistryKey, RegistryValueName, RegistryValueData, ActionType
+| order by Timestamp desc
