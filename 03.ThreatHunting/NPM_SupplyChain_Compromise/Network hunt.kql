@@ -1,0 +1,5 @@
+DeviceNetworkEvents
+| where Timestamp >= ago(30d)
+| where RemoteUrl has_any ("webhook.site", "npmjs.help")  // verified IOCs
+| project Timestamp, DeviceName, RemoteIP, RemoteUrl, InitiatingProcessFileName
+| order by Timestamp desc
