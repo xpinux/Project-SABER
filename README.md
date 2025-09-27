@@ -42,7 +42,7 @@ Here are some of the **key contributors whose KQL content is publicly available 
 - **FalconForceTeam / FalconFriday** – MITRE-mapped threat hunting content  
 - **SlimKQL / Hunting-Queries-Detection-Rules** – Curated Sentinel KQL queries  
 
-This section is meant to **celebrate the community**, not compete with it—without these incredible contributors, Project-SABER wouldn’t exist.  
+This section is meant to **celebrate the community**, not compete with it, without these incredible contributors, Project-SABER wouldn’t exist.  
 
 ##  **KQL Basics**  
 Kusto Query Language (KQL) is used in Microsoft Sentinel for querying logs and creating detection rules. Below is an introduction to KQL syntax, operators, and examples.
