@@ -15,7 +15,7 @@ Adversaries may leverage this tool to bypass normal execution restrictions, esca
 
 ## Configuration  
 - **Recommended query scheduling frequency:** 1 hour  
-- **Recommended lookup period:** 1–7 days  
+- **Recommended lookup period:** 1 day or 1 hour  
 - **Severity Recommendation:** Medium to High (depending on environment and usage policy)  
 
 ## Entity Mapping  
