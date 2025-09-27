@@ -1,0 +1,12 @@
+// AdvancedRun detection
+DeviceProcessEvents
+| where FileName =~ "AdvancedRun.exe"
+| project Timestamp,
+          DeviceName,
+          FileName,
+          InitiatingProcessAccountName,
+          InitiatingProcessFileName,
+          ProcessCommandLine,
+          InitiatingProcessParentFileName,
+          InitiatingProcessSHA1
+| sort by Timestamp desc
