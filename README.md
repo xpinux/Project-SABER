@@ -129,7 +129,7 @@ let log = "User=admin;IP=192.168.1.1;Action=FailedLogin";
 print parse-kv(log, ";", "=")
 ```
 
-Parsers are **essential** for normalizing logs and making them usable in detection rules.
+Parsers are **essential** for normalizing logs and making them usable in detection rules/Threat hunting and log searching.
 
 ---
 
