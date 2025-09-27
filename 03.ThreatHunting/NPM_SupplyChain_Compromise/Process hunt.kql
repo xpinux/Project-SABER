@@ -1,0 +1,7 @@
+DeviceProcessEvents
+| where TimeGenerated > ago(30d)
+| where ProcessCommandLine matches regex @"npm\s+(install|i|add|update|exec|ci)\b"
+| where ProcessCommandLine matches regex @"(http[s]?://|git\+|git@|\.tgz)"
+| extend Account = tostring(InitiatingProcessAccountName), Host = tostring(DeviceName)
+| project Timestamp = TimeGenerated, Host, Account, ProcessCommandLine, InitiatingProcessFileName
+| order by Timestamp desc
