@@ -1,0 +1,7 @@
+Syslog
+| where Computer == "PlaceHereTheVMhorizonHostORHosts"
+| extend User=extract(@"(?i)User.(\S+)",1,SyslogMessage)
+| extend Result=extract(@"((logged in)|(logged off)|(logged out)|(requested)|(unrecognized requests for XMLApi)|(failed to authenticate)|(failed to login)|(launched a desktop)|(SSO credentials locked)|(inactive)|(updated subscription license data key in LDAP)|(has successfully updated the license data in LDAP)|(added a user )|(deleted the user)|(removed Permission))",1,SyslogMessage)
+| extend Request=extract(@"requested(.*)",1,SyslogMessage)
+| extend User=extract(@"(User (\S+)|user:.(\S+))",1,SyslogMessage)
+| project TimeGenerated,EventTime,Computer,User,Result,Request,Facility,SeverityLevel,HostIP,SyslogMessage,CollectorHostName,SourceSystem,Type
