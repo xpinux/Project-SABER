@@ -1,4 +1,4 @@
-# Detection Rule — UAC Disabled via Registry Modification
+# UAC Disabled via Registry Modification
 
 ## Description  
 This detection identifies when User Account Control (UAC) is disabled on Windows endpoints by setting the registry value `EnableLUA` to `0`.  
