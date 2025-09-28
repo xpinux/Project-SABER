@@ -1,0 +1,9 @@
+let lookback = 1h;
+DeviceProcessEvents
+| where Timestamp > ago(lookback)
+| where FileName in~ ("tshark.exe","dumpcap.exe","tcpdump.exe","windump.exe","tcpdump","ettercap","bettercap","dumpcap","tshark")
+| extend cmd = tostring(ProcessCommandLine)
+| where cmd has_any ("-I","--monitor-mode","-p 0","-s 0","-w ","-i ")
+| summarize FirstSeen=min(Timestamp), LastSeen=max(Timestamp), Hits=count(), Samples=make_set(cmd, 5)
+  by DeviceName, DeviceId, InitiatingProcessAccountUpn, FileName,AccountName
+| order by LastSeen desc
