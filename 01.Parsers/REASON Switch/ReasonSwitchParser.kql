@@ -1,0 +1,6 @@
+Syslog
+| where SyslogMessage contains "PlaceYourREASON"
+| extend SourceIP=extract(@'(\d+\.\d+\.\d+\.\d+)', 0, SyslogMessage) 
+| extend ID=extract(@'ID(\d+)', 1, SyslogMessage) 
+| extend Message=extract(@'](.*)', 1, SyslogMessage) 
+| project TimeGenerated, SourceIP, ID, Message, SyslogMessage
