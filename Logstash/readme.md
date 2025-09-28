@@ -84,12 +84,12 @@ Before ingestion, create sample log files from each data source. These are neede
 
 Example output configuration:
 <pre>
-`output {
+output {
   microsoft-sentinel-log-analytics-logstash-output-plugin {
     create_sample_file => true
     sample_file_path   => "/tmp"
   }
-}`
+}
 </pre>
 
 Run Logstash temporarily with this config until the sample files are created.
@@ -122,12 +122,13 @@ In the Azure Portal -> Data Collection Rules.
 
 When creating the transformation for Syslog, open the DCR template JSON (Export -> Edit template) and set the transformation block like this:
 <pre>
-`{
+{
   "transformKql": "source | project TimeGenerated = ls_timestamp, EventTime = todatetime(timestamp), Computer = logsource, HostName = logsource, HostIP = host, SyslogMessage = message, Facility = facility_label, SeverityLevel = severity_label",
   "outputStream": "Microsoft-Syslog"
-}`
-This standardizes output into the Syslog table (Microsoft-Syslog).
+}
 </pre>
+`This standardizes output into the Syslog table (Microsoft-Syslog).`
+
 
 - For the Windows Logs use this in the JSON editing of the Windos DCR ` "outputStream": "Microsoft-WindowsEvent"`
 
