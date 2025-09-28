@@ -1,0 +1,4 @@
+DeviceNetworkEvents
+| where InitiatingProcessFileName =~ "powershell.exe" or InitiatingProcessVersionInfoOriginalFileName =~ "powershell.exe"
+| where InitiatingProcessCommandLine has "hidden"
+| where not(ipv4_is_private(RemoteIP))
