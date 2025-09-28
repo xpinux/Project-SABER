@@ -24,6 +24,7 @@ Logstash, with its Microsoft Sentinel output plugin, curates and forwards these 
 - Sometimes Microsoft’s collectors:
   - Do **not collect rare syslog formats**, or
   - **Fail to parse logs correctly**.
+  - Want to get **SNMP** to Sentinel
 - A **Logstash collector** allows you to normalize, enrich, and transform these logs before ingesting them into Sentinel.
 ---
 
@@ -62,7 +63,7 @@ The Logstash engine is composed of three components:
 ##  Step 1 – Configure Logstash Inputs
 
 Define your **inputs** (Winlogbeat, Syslog, etc.). Example:
-
+<pre>
 input {
   Winlogbeat (Windows logs)
   beats {
@@ -75,19 +76,21 @@ input {
     type => syslog
   }
 }
+</pre>
 
 ## Step 2 – Generate Sample Files
 
 Before ingestion, create sample log files from each data source. These are needed when creating DCR transformations.
 
 Example output configuration:
-
+<pre>
 `output {
   microsoft-sentinel-log-analytics-logstash-output-plugin {
     create_sample_file => true
     sample_file_path   => "/tmp"
   }
 }`
+</pre>
 
 Run Logstash temporarily with this config until the sample files are created.
 
@@ -99,7 +102,8 @@ Collect at least a few lines of real logs in the sample file:
 
 In Microsoft Entra ID (Azure AD):
 1. Go to App registrations → New registration.
-2. Record the:
+2. Create a new Secret (Make Sure to record the Clinet Secret at this screen)
+3. Gather the:
 - Tenant ID
 - Client ID
 - Client Secret
@@ -117,12 +121,13 @@ In the Azure Portal -> Data Collection Rules.
 - Syslog example transformation
 
 When creating the transformation for Syslog, open the DCR template JSON (Export -> Edit template) and set the transformation block like this:
-
+<pre>
 `{
   "transformKql": "source | project TimeGenerated = ls_timestamp, EventTime = todatetime(timestamp), Computer = logsource, HostName = logsource, HostIP = host, SyslogMessage = message, Facility = facility_label, SeverityLevel = severity_label",
   "outputStream": "Microsoft-Syslog"
 }`
 This standardizes output into the Syslog table (Microsoft-Syslog).
+</pre>
 
 - For the Windows Logs use this in the JSON editing of the Windos DCR ` "outputStream": "Microsoft-WindowsEvent"`
 
