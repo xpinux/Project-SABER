@@ -24,3 +24,10 @@ Clearing event logs is a common **log evasion technique** used by attackers to r
 ## False Positives / Tuning Guidance
 Please ensure to **exclude service accounts or computers** that legitimately clear event logs for maintenance or operational purposes.  
 Tuning the rule to ignore known maintenance accounts or scheduled log-clearing jobs will reduce false positives.
+
+## Recommendations / Tuning
+
+- Adjust filtering – if too noisy, focus on exact -WindowStyle Hidden instead of any hidden.
+- Whitelist legitimate automation – exclude known scripts, update servers, or monitoring tools that use PowerShell silently.
+- Expand visibility if needed – remove the private IP filter if attackers may operate internally.
+
