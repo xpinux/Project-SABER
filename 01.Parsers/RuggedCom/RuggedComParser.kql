@@ -1,0 +1,6 @@
+Syslog
+| where SyslogMessage contains "YourRuggedCom"
+| extend SourceIP=extract(@'(\d+\.\d+\.\d+\.\d+)', 0, SyslogMessage) 
+| extend DeviceName=extract(@"(RSG2100\S+)", 0, SyslogMessage) 
+| extend Message=extract(@"(SSH.*|Secure.*|Port.*|SNMP.*|Excessive.*)", 0, SyslogMessage)
+| project TimeGenerated, SourceIP, DeviceName, Message, SyslogMessage
