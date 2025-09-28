@@ -1,0 +1,9 @@
+Syslog
+| where SyslogMessage contains  @"/p/u/doAuthentication.do"
+|union (
+    CommonSecurityLog
+    | where RequestURL contains "/p/u/doAuthentication.do"
+    | where Activity <> "Activity mitigated"
+    | where DeviceAction <> "block"
+    | project TimeGenerated, DeviceVendor, RequestURL, RequestMethod, SourceIP, DestinationIP,DeviceAction
+)
