@@ -1,0 +1,14 @@
+let lookback = 1h;
+let sensitiveGroups = dynamic([
+  "Domain Admins","Enterprise Admins","Administrators","Schema Admins","Account Operators",
+  "Server Operators","Backup Operators","DnsAdmins","Exchange Organization Administrators"
+]);
+DeviceProcessEvents
+| where Timestamp > ago(lookback)
+| where FileName in~ ("net.exe","net1.exe","powershell.exe","pwsh.exe","adfind.exe","cmd.exe","dsquery.exe","dsget.exe","wmic.exe","whoami.exe")
+| extend cmd = tostring(ProcessCommandLine)
+| where cmd has_any (sensitiveGroups)
+| where not(cmd matches regex @"(?i)net\s+localgroup\s+administrators")
+| summarize FirstSeen=min(Timestamp), LastSeen=max(Timestamp), Hits=count(), Samples=make_set(cmd, 5)
+  by DeviceId, DeviceName, InitiatingProcessAccountName, cmd
+| order by LastSeen desc
