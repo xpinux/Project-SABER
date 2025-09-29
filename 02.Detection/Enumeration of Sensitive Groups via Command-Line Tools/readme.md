@@ -25,7 +25,8 @@ Attackers often use built-in Windows tools (`net.exe`, `net1.exe`, `cmd.exe`, `P
 - Query Frequency: 1 hour
 - Lookup Period: 1 hour
 
-# Severity: High
+# Severity: 
+- High
 
 # MITRE ATT&CK Mapping
 - Tactic: Discovery
