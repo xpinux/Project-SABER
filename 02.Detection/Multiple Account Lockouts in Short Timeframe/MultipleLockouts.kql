@@ -1,0 +1,7 @@
+let Timeframe = 10m;
+SecurityEvent
+| where EventID == 4740
+| summarize UniqueUsers=dcount(TargetUserName), Users=make_set(TargetUserName), LockoutCount=count() by Computer, bin(TimeGenerated, Timeframe),EventID
+| where UniqueUsers > 10  // more than 10 different users locked out in 10 min
+| project TimeGenerated, Computer, UniqueUsers, Users, LockoutCount
+| sort by UniqueUsers desc
