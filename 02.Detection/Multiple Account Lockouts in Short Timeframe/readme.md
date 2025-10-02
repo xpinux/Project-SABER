@@ -38,7 +38,7 @@ A high volume of lockouts across different accounts in a short timeframe is a co
 ---
 
 # Recommendations / Tuning
-= Adjust threshold: Modify UniqueUsers > 10 to match your environment size and normal activity.
+- Adjust threshold: Modify UniqueUsers > 10 to match your environment size and normal activity.
 - Exclude known service accounts: Add common accounts that frequently lock out due to misconfigured applications.
 - Baseline normal lockouts: Compare against typical lockout rates per host/domain.
 - Investigate Sources field: Identify the machine or service responsible for the lockouts.
