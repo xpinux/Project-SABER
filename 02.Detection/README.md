@@ -49,7 +49,6 @@ Follow these steps to deploy a detection rule:
 - Consider grouping similar alerts if the query produces too many noisy results.  
 - Re-run simulation until results are meaningful and actionable.  
 
----
 ### 9. Enable the Rule
 - Once satisfied with tuning, enable the rule.  
 - Monitor generated incidents and continue fine-tuning periodically.  
