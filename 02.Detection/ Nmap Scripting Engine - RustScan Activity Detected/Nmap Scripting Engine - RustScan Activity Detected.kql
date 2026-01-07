@@ -1,0 +1,4 @@
+DeviceNetworkEvents
+| where InitiatingProcessCommandLine contains "--script"  or InitiatingProcessCommandLine contains "rustscan"
+    or AdditionalFields contains "Nmap Scripting Engine"
+| project DeviceName, LocalIP, RemoteIP, TimeGenerated, InitiatingProcessCommandLine
