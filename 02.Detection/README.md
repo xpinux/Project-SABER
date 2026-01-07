@@ -34,7 +34,6 @@ Follow these steps to deploy a detection rule:
 1. Apply thresholds or filters defined in the `.md` file (Most probably you won't have too, as it is set in the Query)
 2. (Optional) Adjust thresholds to match your environment’s baseline activity.  
 
----
 ### 7. Simulate the Rule (CRUCIAL)
 1. Use the **Simulate results** option before enabling the rule.  
 2. This allows you to:
