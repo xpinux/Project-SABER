@@ -13,19 +13,13 @@ Key points:
 - Focuses on requests that were **not blocked/mitigated**  
 - Will generate significant noise in Citrix environments, requiring tuning  
 
----
-
 ## Log Source
 - **Tables:**  
   - `Syslog` (from Citrix appliances / load balancers)  
   - `CommonSecurityLog` (from firewalls, WAFs, or proxies)
     
----
-
 ## MITRE ATT&CK Mapping
 - **T1190 – Exploit Public-Facing Application**  
 - **T1078 – Valid Accounts (if session tokens are hijacked)**  
 - **T1556 – Modify Authentication Process**  
-
----
 
