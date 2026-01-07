@@ -46,7 +46,8 @@ Follow these steps to deploy a detection rule:
 2. This allows you to:
    - Verify the number of alerts generated.  
    - Fine-tune thresholds and timeranges.  
-   - Identify potential false positives.  
+   - Identify potential false positives.
+       
    <img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/b8006c5e-1c7a-4867-b08a-7b993b5b9084" />
 
 ---
