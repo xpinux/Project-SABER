@@ -14,8 +14,6 @@ Hunting queries in this repo are designed to help analysts:
 - investigate **patterns of suspicious activity**
 - refine and evolve detections based on real data
 
----
-
 ## How to Use
 
 1. **Understand the use case:**  
