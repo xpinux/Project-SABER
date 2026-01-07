@@ -16,9 +16,6 @@ The rule inspects `DeviceNetworkEvents` for indicators that scanning activity or
 ## Log Source
 
 - **Table:** DeviceNetworkEvents  
-- **Data Required:**  
-  - Endpoint network telemetry  
-  - Initiating process command-line logging
  
 ## Configuration
 
@@ -30,3 +27,22 @@ The rule inspects `DeviceNetworkEvents` for indicators that scanning activity or
 - Source IP: LocalIP
 - Destination IP: RemoteIP
 - Process Command Line: InitiatingProcessCommandLine
+
+## MITRE ATT&CK Mapping
+
+This detection aligns with the following MITRE ATT&CK techniques:
+
+- T1046 – Network Service Discovery
+Nmap and RustScan are commonly used to enumerate open ports and services on target systems.
+- T1018 – Remote System Discovery
+Scanning activity is often a precursor to identifying reachable hosts and potential lateral movement paths.
+
+## Recommendations / Tuning
+
+This detection is intentionally broad and may generate noise in environments with legitimate scanning activity.
+
+Exclude known and approved scanning sources, such as:
+- Penetration testing endpoints
+- Vulnerability scanning servers
+- Red team tooling hosts
+- Security automation systems
