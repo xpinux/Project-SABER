@@ -33,10 +33,8 @@ The rule inspects `DeviceNetworkEvents` for indicators that scanning activity or
 This detection aligns with the following MITRE ATT&CK techniques:
 
 - T1046 – Network Service Discovery
-Nmap and RustScan are commonly used to enumerate open ports and services on target systems.
 - T1018 – Remote System Discovery
-Scanning activity is often a precursor to identifying reachable hosts and potential lateral movement paths.
-
+  
 ## Recommendations / Tuning
 
 This detection is intentionally broad and may generate noise in environments with legitimate scanning activity.
