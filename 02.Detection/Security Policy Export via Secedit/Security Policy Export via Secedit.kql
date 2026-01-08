@@ -1,0 +1,15 @@
+//let lookback = 1h;
+DeviceProcessEvents
+//| where Timestamp > ago(lookback)
+| where FileName in~ ("secedit.exe") or InitiatingProcessFileName in~ ("secedit.exe")
+| extend cmd = tostring(ProcessCommandLine), addf = tostring(AdditionalFields)
+| where 
+    // common secedit export patterns
+    cmd has_cs "/export" or cmd has_cs "/cfg" or cmd has_cs "-export" or cmd has_cs "-cfg"
+    or addf has_cs("/export") or addf has_cs("/cfg")
+    | where cmd contains "SECURITYPOLICY"
+| where not(cmd has "secedit.exe /configure" and cmd has "scare-") // example ignore for mis-typed but keep flexible
+| project Timestamp, DeviceName, DeviceId, InitiatingProcessAccountUpn, AccountName, FileName, InitiatingProcessFileName, ProcessCommandLine, InitiatingProcessCommandLine, AdditionalFields
+| summarize FirstSeen=min(Timestamp), LastSeen=max(Timestamp), Hits=count(), Examples=make_set(ProcessCommandLine, 10)
+    by DeviceName, DeviceId, InitiatingProcessAccountUpn, FileName, InitiatingProcessFileName, AccountName
+| order by LastSeen desc
