@@ -1,0 +1,1 @@
+DeviceProcessEvents | where FileName in ("powershell.exe","pwsh.exe") | extend CmdLine = tostring(ProcessCommandLine) | where CmdLine has_any ("New-PSSession","Enter-PSSession","Invoke-Command -Session") | project Timestamp = TimeGenerated, DeviceName, InitiatingProcessAccountName, InitiatingProcessFileName, CmdLine, ProcessId | order by Timestamp desc
