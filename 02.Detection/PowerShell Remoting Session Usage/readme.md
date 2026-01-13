@@ -45,7 +45,6 @@ Configure the following entity mappings in Microsoft Sentinel:
 
 ## MITRE ATT&CK Mapping
 
-### Primary Techniques
 - **T1021.006 – Remote Services: Windows Remote Management**
 - **T1059.001 – Command and Scripting Interpreter: PowerShell**
 
