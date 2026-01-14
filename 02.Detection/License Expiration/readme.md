@@ -1,6 +1,4 @@
-## Detection Name
-
-**License Expiration**
+## License Expiration
 
 ## Description
 
