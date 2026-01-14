@@ -1,5 +1,4 @@
 ## License Expiration
-
 ## Description
 
 This detection identifies log messages related to **license expiration**, **subscription termination**, **activation failures**, and **licensing compliance issues** across infrastructure and security devices.
