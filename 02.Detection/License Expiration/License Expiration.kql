@@ -1,0 +1,48 @@
+let LicenseExpirationKeywords = dynamic([
+    "license expired", "license expiration", "subscription expired", "subscription expiration",  
+    "renew license", "license required", "license expiring soon",  
+    "subscription expiring soon", "maintenance expired", "maintenance expiring",  
+    "support expired", "support expiring", "activation required", "activation failed",  
+    "renewal needed", "license renewal required", "license validation failed",  
+    "license check failed", "trial expired", "trial period over", "contract expired",  
+    "contract renewal required", "entitlement expired", "entitlement required",  
+    "compliance expired", "compliance violation", "security subscription expired",  
+    "update subscription expired", "activation key expired", "invalid license",  
+    "serial key expired", "registration expired", "software expired", "expired entitlement",  
+    "license will expire", "subscription will expire", "support will expire",  
+    "maintenance will expire", "contract will expire", "entitlement will expire",  
+    "license could not be validated", "validate the license", "failed to validate license",  
+    "unable to validate license", "license verification failed", "invalid activation key",  
+    "license not recognized", "license not found", "license authentication failed",  
+    "invalid product key", "missing license file", "corrupt license file",  
+    "license has been revoked", "license revoked", "expired license key",  
+    "license state invalid", "unlicensed product", "activation server unreachable",  
+    "cannot verify license", "unable to renew license", "license renewal failure",  
+    "license deactivated", "license grace period exceeded", "product activation failed",  
+    "license does not exist or not valid", "license does not exist", "License status changed",  
+    "License Expired", "License could not be validated *", "license will expire",  
+    "license expired or invalid", "invalid entitlement", "entitlement check failed",  
+    "license service unavailable", "license policy violation", "license usage exceeded",  
+    "license not active", "invalid subscription", "license warning issued",  
+    "license expiration imminent", "license expiry detected", "subscription limit reached",  
+    "subscription restriction applied", "license error detected", "licensing error",  
+    "activation period expired", "product key deactivated", "license blacklisted",  
+    "license violation detected", "license termination notice", "subscription terminated",  
+    "license upgrade required", "trial license expired", "subscription downgrade detected",  
+    "product registration failed", "license activation unsuccessful",  
+    "critical license issue detected", "license renewal pending",  
+    "subscription check failed", "license compliance issue", "activation required immediately",  
+    "product licensing error", "license not provisioned", "license provisioning failed",  
+    "software key invalid", "serial number expired", "entitlement revoked",  
+    "maximum license count exceeded", "license type mismatch", "invalid license assignment",  
+    "product license unavailable", "entitlement mismatch", "licensing check incomplete",  
+    "missing subscription details", "product licensing problem", "license recovery required"
+    ]);
+let SyslogQuery = Syslog
+    | where SyslogMessage has_any (LicenseExpirationKeywords);
+let CommonSecurityLogQuery = CommonSecurityLog
+    | where Message has_any (LicenseExpirationKeywords) or AdditionalExtensions has_any (LicenseExpirationKeywords);
+union SyslogQuery, CommonSecurityLogQuery
+| summarize by Message, SyslogMessage, DeviceVendor, Computer
+| where Message !contains "update failed"
+ 
