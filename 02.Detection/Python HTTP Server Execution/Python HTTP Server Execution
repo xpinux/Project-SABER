@@ -1,0 +1,7 @@
+DeviceProcessEvents
+| where InitiatingProcessFileName == "python.exe"
+    or InitiatingProcessFileName == "python3.exe"
+    or FileName == "python.exe"
+    or FileName == "python3.exe"
+| where InitiatingProcessCommandLine matches regex @"-m http.server.*" or ProcessCommandLine matches regex @"-m http.server.*"
+    or ProcessCommandLine matches regex ".*-m http.server.*"
