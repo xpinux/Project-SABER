@@ -39,10 +39,6 @@ Only events with `ActivityStatus == "Accepted"` are included to reduce noise fro
 - **Lookup period:** 1 hour  
 - **Recommended severity:** High  
 
-## Entity Mapping
-
-### Account
-
 ## MITRE ATT&CK Mapping
 
 ### Primary Technique
