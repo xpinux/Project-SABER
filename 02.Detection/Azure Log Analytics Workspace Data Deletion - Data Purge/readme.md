@@ -1,4 +1,4 @@
-## Azure Log Analytics Workspace Data Deletion - Data Purge**
+## Azure Log Analytics Workspace Data Deletion - Data Purge
 
 ## Description
 
