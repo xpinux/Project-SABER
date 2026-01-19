@@ -1,0 +1,3 @@
+AzureActivity
+| where OperationName == "Delete specified data from workspace" or OperationName contains "Delete Data" or OperationName contains "DeleteData" or OperationNameValue contains "DeletaData"
+| where ActivityStatus == "Accepted"
