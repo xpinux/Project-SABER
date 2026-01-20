@@ -1,0 +1,3 @@
+DeviceProcessEvents
+| where ProcessCommandLine contains "localgroup admin" and ProcessCommandLine contains "add"
+| summarize by ProcessCommandLine, DeviceName, ActionType, AccountName, FileName  
