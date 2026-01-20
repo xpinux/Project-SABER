@@ -1,0 +1,3 @@
+CommonSecurityLog
+| where RequestURL contains "api.telegram.com"
+| project TimeGenerated, SourceIP, DestinationIP, DestinationPort, RequestURL, DeviceName, Message, Computer
