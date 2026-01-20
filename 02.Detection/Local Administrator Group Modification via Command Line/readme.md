@@ -20,7 +20,7 @@ This rule focuses on command-line evidence of such behavior.
 
 ### Required Telemetry
 - Microsoft Defender for Endpoint (MDE)
-- 
+  
 ## Detection Logic
 
 The rule looks for process executions where:
