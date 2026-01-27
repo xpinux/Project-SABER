@@ -1,0 +1,48 @@
+// Define a list of columns to search for "ngrok.io"
+let TargetString = dynamic(["ngrok","equinox.io"]);
+let NetworkEvents = DeviceNetworkEvents
+    | extend IsSuspicious = 
+        (RemoteUrl has_any(TargetString)
+        or AdditionalFields has_any(TargetString)
+        or InitiatingProcessFileName has_any(TargetString) // Add other relevant fields here
+        or ActionType has_any(TargetString)) // Example of including ActionType
+    | where IsSuspicious // Filter only suspicious rows
+    | project
+        DeviceName,
+        RemoteUrl,
+        AdditionalFields,
+        InitiatingProcessFileName,
+        ActionType,
+        TimeGenerated;
+// Define a similar process for DeviceProcessEvents
+let ProcessEvents = DeviceProcessEvents
+    | extend IsSuspicious = 
+        (ProcessCommandLine has_any(TargetString)
+        or InitiatingProcessCommandLine has_any(TargetString)
+        or FolderPath has_any(TargetString) // Additional relevant fields
+        or FileName has_any(TargetString))
+    | where IsSuspicious // Filter only suspicious rows
+    | project
+        DeviceName,
+        ProcessCommandLine,
+        InitiatingProcessCommandLine,
+        FolderPath,
+        FileName,
+        TimeGenerated;
+// Join the filtered datasets to find correlations
+NetworkEvents
+| join kind=innerunique (
+    ProcessEvents
+    )
+    on DeviceName
+| project 
+    DeviceName, 
+    RemoteUrl, 
+    ProcessCommandLine, 
+    InitiatingProcessCommandLine, 
+    FolderPath, 
+    FileName, 
+    AdditionalFields, 
+    ActionType, 
+    TimeGenerated
+| sort by TimeGenerated desc
