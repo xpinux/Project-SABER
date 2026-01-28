@@ -22,7 +22,7 @@ This behavior is uncommon in legitimate use cases and strongly associated with *
 
 - Recommended query scheduling frequency: 15 minutes
 - Recommended lookup period: 1 hour
-- Severity Recommendation: MNedium
+- Severity Recommendation: Medium
 
 ## Entity Mapping
 
