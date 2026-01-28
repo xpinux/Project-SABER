@@ -1,0 +1,2 @@
+DeviceProcessEvents
+| where ProcessCommandLine matches regex "\"?powershell(.exe|ise.exe|_ise.exe)?\"?" and ProcessCommandLine matches regex "version 2"
