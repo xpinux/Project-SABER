@@ -1,0 +1,7 @@
+// Detect disabling WinRE via reagentc
+DeviceProcessEvents
+| where ActionType == "ProcessCreated"
+| where FileName in~ ("reagentc.exe","powershell.exe","cmd.exe")
+| where ProcessCommandLine has_any ("reagentc","reagentc.exe")
+| where ProcessCommandLine contains "disable" or ProcessCommandLine contains "disabled"
+| project Timestamp, DeviceName, InitiatingProcessAccountName, FileName, ProcessCommandLine, InitiatingProcessParentFileName, InitiatingProcessSHA1
