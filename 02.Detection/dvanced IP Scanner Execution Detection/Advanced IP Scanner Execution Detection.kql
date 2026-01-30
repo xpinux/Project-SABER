@@ -1,0 +1,29 @@
+let lookback = 1h;
+// list of common Advanced IP Scanner binary names (case-insensitive)
+let scanner_names = dynamic([
+    "advanced_ip_scanner.exe",
+    "advancedipscanner.exe",
+    "AdvancedIPScanner.exe",
+    "Advanced_IP_Scanner.exe",
+    "Advanced IP Scanner.exe",
+    "adv_ip_scanner.exe",
+    "angryip.exe",            // (optional) other GUI scanners you may want to monitor
+    "advanced-ip-scanner.exe" // include plausible variants
+    ]);
+// 1) EDR telemetry
+DeviceProcessEvents
+| where Timestamp >= ago(lookback)
+| where tolower(FileName) in (scanner_names)
+| extend cmd = tostring(ProcessCommandLine)
+| summarize
+    FirstSeen=min(Timestamp),
+    LastSeen=max(Timestamp),
+    Hits=count(),
+    Samples=make_set(cmd, 5)
+    by
+    DeviceName,
+    DeviceId,
+    InitiatingProcessAccountUpn,
+    FileName,
+    InitiatingProcessParentFileName,
+    InitiatingProcessSHA1
