@@ -1,0 +1,2 @@
+SecurityEvent
+| where CommandLine matches regex @"forfiles(.*)(\S+\.exe|dll|bat|ps1|doc|docm|xls|xlsm|msi)"
