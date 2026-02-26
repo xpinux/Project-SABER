@@ -1,0 +1,16 @@
+DeviceFileEvents
+| where ActionType in ("FileCreated","FileModified","FileRenamed")
+| where FileName in ("sethc.exe","utilman.exe","osk.exe","magnify.exe","narrator.exe")
+| where InitiatingProcessFileName !in~ (
+    "TiWorker.exe",
+    "TrustedInstaller.exe",
+    "wbengine.exe",
+    "svchost.exe",
+    "wuaucltcore.exe",
+    "setuphost.exe",
+    "msiexec.exe",
+    "explorer.exe"
+)
+| project Timestamp, DeviceName, InitiatingProcessAccountName, InitiatingProcessFileName,
+          FolderPath, FileName, ActionType
+| order by Timestamp desc
